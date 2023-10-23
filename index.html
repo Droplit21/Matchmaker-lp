@@ -5,7 +5,10 @@
     <title>Matchmaker for the web</title>  
 </head>
 <body>
-    <h1>Matchmaker For the Web</h1>
+  
+  <body style="background-color:pink;">
+  
+  <h1>Matchmaker For the Web</h1>
     <p>This website will allow you to see whether or not you're the perfect match for me! To get the results simply click on the dropdown menu and pick the option that most resonates with you. After you're done, you will be given a score in which will tell you if we are compatible.</p>
 
 
@@ -65,9 +68,15 @@
 console.log("Starting Matchmaker Practice...");
 
 
+
+
+
 function calculateCompatibility() {
     console.log("calculateCompatibility()");
 
+
+    
+    
     const DESIRED_RESPONSE = [  
         5,
         3,
@@ -77,6 +86,7 @@ function calculateCompatibility() {
     ]
 
     const MAX_SCORE = 25
+
     
     let question1Response = document.getElementById('Question 1').selectedOptions[0].value;
     let question2Response = document.getElementById('Question 2').selectedOptions[0].value;
@@ -132,10 +142,23 @@ function calculateCompatibility() {
     console.log("total="+ totalCompatibility);
     
     
+    let disclose = "";
+
+    if (totalCompatibility >= 80) {
+        disclose = "Why aren't we together already?";
+    } else if (totalCompatibility >= 60 && totalCompatibility < 80) {
+        disclose = "We're similar enough, I'll be glad to call you a friend.";
+    } else {
+        disclose = "You just wasted our time. Please get off my website and never think of me again.";
+    }
+
+    document.getElementById("Compatibility").innerHTML = "Your Compatibility is: "+totalCompatibility + "<br>" + disclose;
+}
     
+
     document.getElementById("Compatibility").innerHTML = "Your Compatibility is: "+totalCompatibility;
 
-}
+
 
 
 </script>    
